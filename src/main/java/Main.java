@@ -17,14 +17,13 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Введите дату за которую хотите получить логи: ");
+        String dateLog = sc.nextLine();
         try {
-            String dateLog = sc.nextLine(); // Do validation
             parser.parseJSON(parser.getHTML(dateLog));
+            consoleView.showLog(parser.getLogs());
+            logService.persist(parser.getLogs());
         } catch (Exception e) {
-            System.out.println("НЕ верные формат или такой даты не существует");
+            System.out.println(parser.getHTML(dateLog));
         }
-        consoleView.showLog(parser.getLogs());
-        logService.persist(parser.getLogs());
-
     }
 }
