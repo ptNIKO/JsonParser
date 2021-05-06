@@ -10,7 +10,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
         LogService logService = new LogService();
         ConsoleView consoleView = new ConsoleView();
         Parser parser = new Parser();
